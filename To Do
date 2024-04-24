@@ -1,0 +1,24 @@
+Patient information: First Name, Last Name
+    - create patient
+    - select and update patient? is update for check in/out?
+
+Dropdown feature: check in green /check out red
+    - gotta change state, update color, have it stay 
+
+
+use createRoot
+
+Figure out port for express vs react, backend port should match proxy 
+
+create src folder 
+    - index.js in react entry point (webpack.config)
+    
+index.html is my HTML template for webpack in root 
+
+extend react with components and manage your state with useState and useEffect
+
+Setup mongodb and database
+
+Stretch:
+Add patients to calendar and time slots
+Click on patient to view their profile/history

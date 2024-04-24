@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Build artifacts
+build/
+dist/
+
+# Environmental files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+
+# Debugging files
+npm-debug.log
