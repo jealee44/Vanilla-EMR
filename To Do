@@ -22,3 +22,11 @@ Setup mongodb and database
 Stretch:
 Add patients to calendar and time slots
 Click on patient to view their profile/history
+
+Front end - add calendar 1 week M - F, has hours from 12 - 2pm
+theres a create patient with first name last name and date/time of appointment
+theres a function that pulls/finds existing patients and schedules them for a certain date/time for appointment
+it will then fill calendar
+then that will have a drop down of check in / out 
+
+maybe add a cancel appointment feature that will remove them from calendar
