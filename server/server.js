@@ -10,6 +10,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.use('/api', apiRouter);
 
 app.use((req, res) => res.status(404).send('Wrong Page...'));
@@ -20,9 +21,10 @@ app.use((err, req, res, next) => {
         status: 500,
         message: { err: 'Error occured' },
     };
-    const errorObj = Object.assign({}, defaultErr, err);
+
+    const errorObj = err ? Object.assign({}, defaultErr, err) : defaultErr;
     console.log(errorObj.log);
-    return res.status(errObj.status).json(errorObj.message);
+    return res.status(errorObj.status).json(errorObj.message);
 });
 
 app.listen(PORT, () => {

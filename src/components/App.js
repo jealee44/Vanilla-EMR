@@ -1,12 +1,21 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Calendar from './Calendar';
+import PatientForm from './PatientForm';
 import './styles.css'
 
 const App = () => {
     return (
-        <div>
-            <h1 className="temp">JEPIC</h1>
-        </div>
-    )
+  <Router>
+    <div>
+        <h1>JEPIC</h1>
+        <Routes>
+            <Route path ="/" element={<Calendar/>} />
+            <Route path ="/form" element={<PatientForm/>} />
+        </Routes>
+    </div>
+  </Router>
+    );
 }
 
 export default App;

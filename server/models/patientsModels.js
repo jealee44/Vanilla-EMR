@@ -6,7 +6,7 @@ const MONGO_URL=process.env.MONGO_URL;
 mongoose.connect(MONGO_URL, {
     dbName: 'JEPIC'
 })
-.then(() => console.timeLog('Connected to Mongo DB.'))
+.then(() => console.log('Connected to Mongo DB.'))
 .catch(err => console.log(err));
 
 const Schema = mongoose.Schema;
