@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PatientForm = () => {
     const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
-    const day = searchParams.get('dev');
-    const timeIndex = searchParams.get('timeIndex');
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
 
@@ -22,15 +18,25 @@ const PatientForm = () => {
             },
         };
 
-        await fetch('/api/patients', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newPatient),
-        });
+        try {
+            const response = await fetch('/api/patients', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newPatient),
+            });
 
-        navigate('/');
+            if (response.ok) {
+                navigate('/'); // Navigate to the calendar
+            } else {
+                console.error('Failed to submit form:', response.statusText);
+                alert('Failed to submit form.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Error submitting form.');
+        }
     };
 
     return (
@@ -38,7 +44,7 @@ const PatientForm = () => {
             <h2>Add New Patient</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>FIrst Name</label>
+                    <label>First Name</label>
                     <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                 </div>
                 <div>

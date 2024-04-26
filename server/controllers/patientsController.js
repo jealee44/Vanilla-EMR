@@ -4,7 +4,7 @@ const patientsController = {};
 
 patientsController.addPatient = async (req, res, next) => {
     try {
-        const newPatient = await new Patient(req.body);
+        const newPatient = new Patient(req.body);
         const savedPatient = await newPatient.save();
         req.newPatient = savedPatient;
         return next();
